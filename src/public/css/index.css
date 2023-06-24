@@ -1,0 +1,224 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+@font-face {
+    font-family: "FFF Equipe";
+    src: url("../font/FFF\ Equipe\ Bold.otf");
+}
+
+.up {
+    background-color: #0C3153;
+    height: 36vw;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.lastname {
+    color: #C8AF7A;
+    text-orientation: upright;
+    writing-mode: vertical-lr;
+    font: 3.5vw "FFF Equipe";
+    margin: 3vw;
+    padding-right: 23vw;
+}
+
+.firstname {
+    color: #FFF;
+    writing-mode: horizontal-tb;
+}
+
+.imgsup {
+    object-fit: cover;
+    width: 66vw;
+    height: 36vw;
+}
+
+.mid {
+    height: 4vw;
+    background-color: #FFF;
+    border: #C1C0C0 solid 0.15vw;
+    border-left: 0px solid;
+    border-right: 0px solid;
+    color: #0C3153;
+    font: 3.5vw "FFF Equipe";
+    font-size: 2.5vw;
+    padding-top: 1vw;
+    text-shadow: 1px 1px 2px black;
+    text-align: center;
+}
+
+.goals {
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.card {
+    width: 400px;
+    height: 90px;
+    background-color: #0C3153;
+    padding: 25px;
+    margin: 10px;
+    float: left;
+    border-radius: 15px;
+    position: relative;
+    transition: background-color 0.5s ease;
+    box-shadow: 1px 1px 2px black;
+    color: #C8AF7A;
+    font: 30px "FFF Equipe";
+    animation: fade-in 2s ease;
+}
+
+.card:hover {
+    background-color: #0c3153c3;
+    color: #FFF;
+}
+
+.card .club {
+    width: 60px;
+    height: 60px;
+}
+
+.actual {
+    float: left;
+}
+
+.opponent {
+    float: right;
+}
+
+.card .against {
+    font-size: 15px;
+    text-align: center;
+}
+
+.card .against-name {
+    font-size: 30px;
+    text-align: center;
+}
+
+.card .info {
+    padding-top: 15px;
+    font-size: 25px;
+}
+
+.card .date {
+    position: absolute;
+    bottom: 15px;
+    right: 25px;
+    font-size: 20px;
+}
+
+.eye {
+    position: relative;
+    display: inline-block;
+    transform: scale(var(--ggs, 1));
+    width: 12px;
+    height: 9px;
+    border-bottom-right-radius: 50%;
+    border-bottom-left-radius: 50%;
+    overflow: hidden;
+    box-sizing: border-box;
+    margin: 4.5px;
+}
+
+.eye::after,
+.eye::before {
+    content: "";
+    display: block;
+    border-radius: 50px;
+    position: absolute;
+    box-sizing: border-box;
+}
+
+.eye::after {
+    top: 1px;
+    box-shadow: inset 0 -4px 0 1px, inset 0 0 0 1px;
+    width: 12px;
+    height: 12px;
+}
+
+.eye::before {
+    width: 4px;
+    height: 4px;
+    border: 1px solid transparent;
+    box-shadow: inset 0 0 0 3px, 0 0 0 2px, 3px 0 0 0, -3px 0 0 0;
+    bottom: 2px;
+    left: 4px;
+}
+
+.footer {
+    margin-top: 10px;
+    height: 3vw;
+    background-color: #FFF;
+    border: #C1C0C0 solid 0.15vw;
+    border-left: 0px solid;
+    border-right: 0px solid;
+    border-bottom: 0px solid;
+    color: #0C3153;
+    font: 3.5vw "FFF Equipe";
+    font-size: 1.5vw;
+    padding-top: 1vw;
+    text-align: center;
+}
+
+@media (max-width: 768px),
+(max-device-width: 768px) {
+    .up {
+        height: 100vw;
+        display: inline-block;
+        position: relative;
+    }
+
+    .up .imgsup {
+        width: 100%;
+        height: 80vw;
+    }
+
+    .up .lastname {
+        position: absolute;
+        font-size: 10vw;
+        padding-top: 81vw;
+        writing-mode: horizontal-tb;
+        padding-left: 19.9%;
+    }
+
+    .mid {
+        height: 6vw;
+        padding-top: 1.5vw;
+        font-size: 4vw;
+    }
+
+    .card {
+        width: 80%;
+        margin: 10px 0;
+    }
+
+    .card .info {
+        position: absolute;
+        top: 55%;
+    }
+
+    .card .against-name {
+        font-size: 6.5vw;
+    }
+
+    .footer {
+        height: 5vw;
+        font-size: 2.5vw;
+    }
+}
+
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
