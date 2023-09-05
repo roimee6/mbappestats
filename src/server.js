@@ -10,7 +10,7 @@ server.set("views", __dirname + "/views");
 server.set("view engine", "ejs");
 
 server.use(express.json());
-server.use(express.urlencoded({ extended: true }));
+server.use(express.urlencoded({extended: true}));
 
 fs.readdirSync(__dirname + "/routes/").forEach(fileName => require("./routes/" + fileName));
 

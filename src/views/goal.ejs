@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>MbappeStats</title>
+
+    <link rel="icon" type="image/png" href="/img/icon.png"/>
+    <link rel="stylesheet" href="/css/goal.css">
+
+    <script src="/script/goal.js"></script>
+</html>
+
+<body onload="init(<%- id %>)">
+
+<div class="container">
+    <div class="goal-container">
+        <p class="goal-number">BUT N°<span style="color: #C8AF7A"><%- id %></span></p>
+        <video controls></video>
+
+        <div class="buttons">
+            <a href="/goal/<%- previous %>">
+                <div class="button previous">
+                    <p><span style="color: #FFFFFF">BUT</span> PRÉCÉDENT</p>
+                </div>
+            </a>
+
+            <a href="/goal/<%- next %>">
+                <div class="button next">
+                    <p><span style="color: #FFFFFF">BUT</span> SUIVANT</p>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <div class="info-container">
+        <p class="info-default">Quelques informations</p>
+
+        <div class="match">
+            <div class="hexagon actual"></div>
+            <div class="hexagon"><p>VS</p></div>
+            <div class="hexagon against"></div>
+        </div>
+
+        <div class="description-break">
+            <div class="line-start"></div>
+            <p>DESCRIPTION DU BUT</p>
+            <div class="line-end"></div>
+        </div>
+
+        <div class="description-block">
+            <p class="description"><%- description %></p>
+        </div>
+
+        <div class="footer">
+            <p>Dev. par l'équipe MbappeStats.com</p>
+        </div>
+    </div>
+</div>
+
+</body>

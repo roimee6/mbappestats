@@ -8,6 +8,10 @@
     src: url("../font/FFF\ Equipe\ Bold.otf");
 }
 
+a:link, a:active, a:hover, a:visited {
+    text-decoration: none;
+}
+
 .up {
     background-color: #0C3153;
     height: 36vw;
@@ -40,8 +44,8 @@
     height: 4vw;
     background-color: #FFF;
     border: #C1C0C0 solid 0.15vw;
-    border-left: 0px solid;
-    border-right: 0px solid;
+    border-left: 0 solid;
+    border-right: 0 solid;
     color: #0C3153;
     font: 3.5vw "FFF Equipe";
     font-size: 2.5vw;
@@ -55,6 +59,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    overflow: hidden;
 }
 
 .card {
@@ -123,7 +128,7 @@
     border-bottom-left-radius: 50%;
     overflow: hidden;
     box-sizing: border-box;
-    margin: 4.5px;
+    margin: 5px;
 }
 
 .eye::after,
@@ -155,10 +160,8 @@
     margin-top: 10px;
     height: 3vw;
     background-color: #FFF;
-    border: #C1C0C0 solid 0.15vw;
-    border-left: 0px solid;
-    border-right: 0px solid;
-    border-bottom: 0px solid;
+    border: 0 solid #C1C0C0;
+    border-top-width: 0.15vw;
     color: #0C3153;
     font: 3.5vw "FFF Equipe";
     font-size: 1.5vw;
@@ -166,8 +169,8 @@
     text-align: center;
 }
 
-@media (max-width: 768px),
-(max-device-width: 768px) {
+@media (max-width: 801px),
+(max-device-width: 801px) {
     .up {
         height: 100vw;
         display: inline-block;

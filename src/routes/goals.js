@@ -2,11 +2,18 @@ const fs = require("fs");
 
 server.get("/goals/:number", (request, response) => {
     const number = parseInt(request.params.number);
+    response.send(get(number));
+});
+
+module.exports.get = get;
+
+function get(number) {
     const data = fs.readFileSync("./src/public/goals.csv", "utf8");
 
     if (number === 0) {
-        response.send(data);
+        return data;
     } else {
-        response.send(data.split("\n")[number - 1]);
+        const lines = data.split("\n");
+        return lines[number - 1] + "," + lines.length;
     }
-});
+}

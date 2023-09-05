@@ -1,62 +1,65 @@
-function init() {    
-    fetch("http://127.0.0.1:3000/goals/0")
-        .then(response => response.text())
-        .then(function(data) {
-            const goals = data.split("\n");
-            
-            for (let i = 0; i < goals.length; i++) {    
-                const values = goals[i].split(",");
-                const logo = values[2].split(" ")[0].toLowerCase();
+async function init() {
+    const response = await fetch("http://127.0.0.1:3000/goals/0");
+    const data = await response.text();
 
-                let div = document.createElement("div");
-                let actualClub = document.createElement("img");
-                let opponentClub = document.createElement("img");
-                let against = document.createElement("p");
-                let againstName = document.createElement("p");
-                let info = document.createElement("p");
-                let date = document.createElement("p");
+    const goals = data.split("\n");
 
-                div.className = "card";
+    for (let i = 0; i < goals.length; i++) {
+        const values = goals[i].split(",");
 
-                actualClub.className = "club actual";
-                actualClub.src = "/img/" + logo + ".webp";
-                actualClub.alt = "Image";
+        let div = document.createElement("a");
+        let actualClub = document.createElement("img");
+        let opponentClub = document.createElement("img");
+        let against = document.createElement("p");
+        let againstName = document.createElement("p");
+        let info = document.createElement("p");
+        let date = document.createElement("p");
 
-                opponentClub.className = "club opponent";
-                opponentClub.src = "/img/" + values[4].replaceAll(" ", "-").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "") + ".webp";
-                opponentClub.alt = "Image";
+        div.className = "card"
+        div.href = "/goal/" + values[0];
 
-                against.className = "against";
-                against.textContent = "VS";
+        actualClub.className = "club actual";
+        actualClub.src = "/img/" + formatName(values[2]) + ".webp";
+        actualClub.alt = "Image";
 
-                againstName.className = "against-name";
-                againstName.textContent = values[4];
+        opponentClub.className = "club opponent";
+        opponentClub.src = "/img/" + formatName(values[4]) + ".webp";
+        opponentClub.alt = "Image";
 
-                info.className = "info";
-                info.innerHTML = "N°" + values[0] + "・50<i class=\"eye\"></i>";
+        against.className = "against";
+        against.textContent = "VS";
 
-                date.className = "date";
-                date.textContent = values[3];
+        againstName.className = "against-name";
+        againstName.textContent = values[4];
 
-                div.appendChild(actualClub);
-                div.appendChild(opponentClub);
-                div.appendChild(against);
-                div.appendChild(againstName);
-                div.appendChild(info);
-                div.appendChild(date);
+        info.className = "info";
+        info.innerHTML = "N°" + values[0] + "・50<i class=\"eye\"></i>";
 
-                document.querySelector(".goals").appendChild(div); 
-            }
+        date.className = "date";
+        date.textContent = values[3];
 
-            let actual = 0;
-            
-            const interval = setInterval(() => {
-                if (actual < goals.length) {
-                    actual++;
-                    document.querySelector(".goals-number").innerHTML = "SES " + actual + " BUTS";
-                } else {
-                    clearInterval(interval);
-                }
-            }, 7);
-        });
+        div.appendChild(actualClub);
+        div.appendChild(opponentClub);
+        div.appendChild(against);
+        div.appendChild(againstName);
+        div.appendChild(info);
+        div.appendChild(date);
+
+        document.querySelector(".goals").appendChild(div);
+    }
+
+    let actual = 0;
+
+    const interval = setInterval(() => {
+        if (actual < goals.length) {
+            actual++;
+            document.querySelector(".goals-number").innerHTML = "SES " + actual + " BUTS";
+        } else {
+            clearInterval(interval);
+        }
+    }, 7);
+}
+
+function formatName(input) {
+    return input.replaceAll(" ", "-").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
 }
